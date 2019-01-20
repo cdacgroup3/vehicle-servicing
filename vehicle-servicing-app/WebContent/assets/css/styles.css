@@ -1,0 +1,25 @@
+@charset "ISO-8859-1";
+.make-center{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.make-left{
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+}
+.make-right{
+   display: flex;
+   justify-content: flex-end;
+   align-items: right;
+}
+.bg {
+           background-image: url("images/bg.jpg");
+   }
+
+a {
+	color: black;
+	text-decoration: none;
+}
+              
