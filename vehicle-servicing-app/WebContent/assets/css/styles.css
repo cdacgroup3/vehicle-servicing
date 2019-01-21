@@ -130,4 +130,14 @@ header .navbar { width: 100%; }
     line-height: 45px;
     text-align: center;
 }
+
+
+
+[data-visible="true"] {
+	display: block;
+}
+
+[data-visible="false"] {
+	display: none !important;
+}
               

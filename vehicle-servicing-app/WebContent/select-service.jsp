@@ -41,7 +41,7 @@
 
 
 		<div class="row mt-2">
-			<div class="col-6" id="servicingService">
+			<div class="col-6" id="servicing-service">
 				<div class=" card service-card cardhover car-servicing">
 					<br>
 					<div class="card-image make-center">
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 			
-			<div class="col-6">
+			<div class="col-6" id="repairing-service">
 				<div data-class="Emergency"
 					class="card service-card cardhover car-servicing">
 					<br>
@@ -70,7 +70,7 @@
 			</div>
 		</div>
 		<div class="row mt-2">
-			<div class="col-6">
+			<div class="col-6" id="denting-service">
 				<div data-class="Emergency" class="card service-card cardhover car-servicing">
 					<br>
 					<div class="card-image make-center">
@@ -83,7 +83,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-6">
+			<div class="col-6" id="emergency-service">
 				<div data-class="Emergency"
 					class="card service-card cardhover car-servicing">
 					<br>

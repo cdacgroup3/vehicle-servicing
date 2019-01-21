@@ -72,4 +72,28 @@ public class UserController {
 		customerDao.createServiceCenter(serviceCenter);
 		return "book-service";
 	}
+	
+	@RequestMapping(value="/servicing.htm")
+	public String selectServicing(ModelMap model) {
+		model.put("serviceType", "servicing");
+		return "book-service";
+	}
+
+	@RequestMapping(value="/repairing.htm")
+	public String selectRepairing(ModelMap model) {
+		model.put("serviceType", "repairing");
+		return "book-service";
+	}
+	
+	@RequestMapping(value="/denting.htm")
+	public String selectDenting(ModelMap model) {
+		model.put("serviceType", "denting");
+		return "book-service";
+	}
+	
+	@RequestMapping(value="/emergency.htm")
+	public String selectEmergency(ModelMap model) {
+		model.put("serviceType", "emergency");
+		return "book-service";
+	}
 }
