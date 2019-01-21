@@ -41,7 +41,7 @@
 
 
 		<div class="row mt-2">
-			<div class="col-6">
+			<div class="col-6" id="servicingService">
 				<div class=" card service-card cardhover car-servicing">
 					<br>
 					<div class="card-image make-center">
@@ -53,6 +53,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="col-6">
 				<div data-class="Emergency"
 					class="card service-card cardhover car-servicing">
@@ -97,5 +98,9 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/site.js"></script>
 </body>
 </html>

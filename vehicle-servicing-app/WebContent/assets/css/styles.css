@@ -1,5 +1,5 @@
 @charset "ISO-8859-1";
-.make-center{
+/* .make-center{
    display: flex;
    justify-content: center;
    align-items: center;
@@ -21,5 +21,113 @@
 a {
 	color: black;
 	text-decoration: none;
+} */
+
+@font-face {
+  font-family: "cgfont";
+  src: url("../font/cgfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]::before, [class*=" icon-"]::before {
+    font-family: "cgfont" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.cg-icon {
+    color: #01704f;
+    -webkit-text-stroke: 0.5px;
+    font-size: 70px;
+}
+
+.icon-cg-location::before { content: "\72"; }
+.icon-cg-fair::before { content: "\73"; }
+.icon-cg-quality::before { content: "\71"; }
+.icon-credit-card::before { content: "\38"; }
+.icon-cg-spark::before { content: "\70"; }
+
+.make-center {
+	display: flex;
+	justify-content: center;
+	align-items: center
+}
+
+.make-right {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+}
+
+.enlarge-text {
+	font-size: 45px;
+	font-weight: 700;
+}
+
+
+header { border-bottom: 1px solid #f0f3fa; }
+
+header .navbar { width: 100%; }
+
+.navbar-expand-lg .navbar-nav .nav-link { padding: .5rem 15px; }
+
+.navbar-expand-lg .navbar-nav .nav-link:hover { color: #01704f; }
+
+.banner-box {
+	height: calc(100vh - 112px);
+	background: url('../images/home-banner.jpg') top left/cover no-repeat;
+	position: relative;
+}
+
+.banner-box::before {
+  content: "";  
+  width: 100%; 
+  height: 100%;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  background: rgba(5,95,35,0.60);
+}
+
+.banner-info span {
+	display: block;
+}
+
+.banner a,
+.banner button {
+    padding: 15px 35px;
+    margin-top: 25px;
+	background-color: #01704f;
+	font-size: 20px;
+    font-weight: bold;    
+	text-transform: uppercase;
+}
+
+.banner .card {
+	max-width: 480px;
+}
+
+.how-it-works {
+	background: #d6f7d1;
+}
+
+.how-it-works span {
+	width: 60px;
+    height: 60px;
+    padding: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #01704f;
+    color: #FFF;
+    font: 40px Arial, sans-serif;
+    line-height: 45px;
+    text-align: center;
 }
               
