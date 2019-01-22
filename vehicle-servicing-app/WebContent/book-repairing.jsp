@@ -4,8 +4,8 @@
 	<!--select item tags-->
 	<div class="col-12">
 		<div class="row rounded mt-2 ml-1" style="height: 200px">
-			<div class="card" style="width: 100%">
-				<h5 class="card-header">Brake Pad/Disc Pad Replacement</h5>
+			<div class="card checkout-service" style="width: 100%">
+				<h5 class="card-header checkout-service-name">Brake Pad/Disc Pad Replacement</h5>
 				<div class="card-body row mt-0">
 					<div class="col-2">
 						<!--image-->
@@ -21,13 +21,13 @@
 						</h6>
 					</div>
 					<div class="col-3">
-						<h6>CC Price:4500/-</h6>
-						<small class="text-danger">Market:<del>Rs. 6300</del></small><br>
+						<h6>CC Price: <span class="checkout-price">4500/-</span></h6>
+						<small class="text-danger">Market:Rs. <del class="market-price">6300</del></small><br>
 						<small>Time: 6 Hrs</small>
 					</div>
 					<div class="col-2 ">
-						<a href="#" class="btn btn-primary btn-block ">INFO</a> <a
-							href="#" class="btn btn-primary btn-block ">BOOK</a>
+						<button class="btn btn-primary btn-block book-checkout">BOOK</button>
+						<button class="btn btn-primary btn-block service-remove d-none">REMOVE</button>
 					</div>
 
 				</div>
@@ -37,8 +37,8 @@
 
 
 		<div class="row rounded mt-2 ml-1" style="height: 200px">
-			<div class="card" style="width: 100%">
-				<h5 class="card-header">AC Check</h5>
+			<div class="card checkout-service" style="width: 100%">
+				<h5 class="card-header checkout-service-name">AC Check</h5>
 				<div class="card-body row mt-0">
 					<div class="col-2">
 						<!--image-->
@@ -53,21 +53,21 @@
 						</h6>
 					</div>
 					<div class="col-3">
-						<h6>CC Price:4500/-</h6>
-						<small class="text-danger">Market:<del>Rs. 6300</del></small><br>
+						<h6>CC Price: <span class="checkout-price">4500/-</span></h6>
+						<small class="text-danger">Market:Rs. <del class="market-price">6300</del></small><br>
 						<small>Time: 6 Hrs</small>
 					</div>
 					<div class="col-2 ">
-						<a href="#" class="btn btn-primary btn-block ">INFO</a> <a
-							href="#" class="btn btn-primary btn-block ">BOOK</a>
+						<button class="btn btn-primary btn-block book-checkout">BOOK</button>
+						<button class="btn btn-primary btn-block service-remove d-none">REMOVE</button>
 					</div>
 
 				</div>
 			</div>
 		</div>
 		<div class="row rounded mt-2 ml-1" style="height: 200px">
-			<div class="card" style="width: 100%">
-				<h5 class="card-header">Clutch Check</h5>
+			<div class="card checkout-service" style="width: 100%">
+				<h5 class="card-header checkout-service-name">Clutch Check</h5>
 				<div class="card-body row mt-0">
 					<div class="col-2">
 						<!--image-->
@@ -83,21 +83,21 @@
 						</h6>
 					</div>
 					<div class="col-3">
-						<h6>CC Price:4500/-</h6>
-						<small class="text-danger">Market:<del>Rs. 6300</del></small><br>
+						<h6>CC Price: <span class="checkout-price">4500/-</span></h6>
+						<small class="text-danger">Market:Rs. <del class="market-price">6300</del></small><br>
 						<small>Time: 6 Hrs</small>
 					</div>
 					<div class="col-2 ">
-						<a href="#" class="btn btn-primary btn-block ">INFO</a> <a
-							href="#" class="btn btn-primary btn-block ">BOOK</a>
+						<button class="btn btn-primary btn-block book-checkout">BOOK</button>
+						<button class="btn btn-primary btn-block service-remove d-none">REMOVE</button>
 					</div>
 
 				</div>
 			</div>
 		</div>
 		<div class="row rounded mt-2 ml-1" style="height: 200px">
-			<div class="card" style="width: 100%">
-				<h5 class="card-header">Battery Charging/Replacement</h5>
+			<div class="card checkout-service" style="width: 100%">
+				<h5 class="card-header checkout-service-name">Battery Charging/Replacement</h5>
 				<div class="card-body row mt-0">
 					<div class="col-2">
 						<!--image-->
@@ -114,21 +114,21 @@
 						</h6>
 					</div>
 					<div class="col-3">
-						<h6>CC Price:4500/-</h6>
-						<small class="text-danger">Market:<del>Rs. 6300</del></small><br>
+						<h6>CC Price: <span class="checkout-price">4500/-</span></h6>
+						<small class="text-danger">Market:Rs. <del class="market-price">6300</del></small><br>
 						<small>Time: 6 Hrs</small>
 					</div>
 					<div class="col-2 ">
-						<a href="#" class="btn btn-primary btn-block ">INFO</a> <a
-							href="#" class="btn btn-primary btn-block ">BOOK</a>
+						<button class="btn btn-primary btn-block book-checkout">BOOK</button>
+						<button class="btn btn-primary btn-block service-remove d-none">REMOVE</button>
 					</div>
 
 				</div>
 			</div>
 		</div>
 		<div class="row rounded mt-2 ml-1" style="height: 200px">
-			<div class="card" style="width: 100%">
-				<h5 class="card-header">Wheel Alignment And Balancing</h5>
+			<div class="card checkout-service" style="width: 100%">
+				<h5 class="card-header checkout-service-name">Wheel Alignment And Balancing</h5>
 
 				<div class="card-body row mt-0">
 					<div class="col-2">
@@ -145,13 +145,13 @@
 						</h6>
 					</div>
 					<div class="col-3">
-						<h6>CC Price:4500/-</h6>
-						<small class="text-danger">Market:<del>Rs. 6300</del></small><br>
+						<h6>CC Price: <span class="checkout-price">4500/-</span></h6>
+						<small class="text-danger">Market:Rs. <del class="market-price">6300</del></small><br>
 						<small>Time: 6 Hrs</small>
 					</div>
 					<div class="col-2 ">
-						<a href="#" class="btn btn-primary btn-block ">INFO</a> <a
-							href="#" class="btn btn-primary btn-block ">BOOK</a>
+					<button class="btn btn-primary btn-block book-checkout">BOOK</button>
+						<button class="btn btn-primary btn-block service-remove d-none">REMOVE</button>
 					</div>
 
 				</div>
@@ -159,8 +159,8 @@
 		</div>
 
 		<div class="row rounded mt-2 ml-1" style="height: 200px">
-			<div class="card" style="width: 100%">
-				<h5 class="card-header">Scanning</h5>
+			<div class="card checkout-service" style="width: 100%">
+				<h5 class="card-header checkout-service-name">Scanning</h5>
 
 				<div class="card-body row mt-0">
 					<div class="col-2">
@@ -178,21 +178,21 @@
 						</h6>
 					</div>
 					<div class="col-3">
-						<h6>CC Price:4500/-</h6>
-						<small class="text-danger">Market:<del>Rs. 6300</del></small><br>
+						<h6>CC Price: <span class="checkout-price">4500/-</span></h6>
+						<small class="text-danger">Market:Rs. <del class="market-price">6300</del></small><br>
 						<small>Time: 6 Hrs</small>
 					</div>
 					<div class="col-2 ">
-						<a href="#" class="btn btn-primary btn-block ">INFO</a> <a
-							href="#" class="btn btn-primary btn-block ">BOOK</a>
+						<button class="btn btn-primary btn-block book-checkout">BOOK</button>
+						<button class="btn btn-primary btn-block service-remove d-none">REMOVE</button>
 					</div>
 
 				</div>
 			</div>
 		</div>
 		<div class="row rounded mt-2 ml-1" style="height: 200px">
-			<div class="card" style="width: 100%">
-				<h5 class="card-header">Tyre Replacement</h5>
+			<div class="card checkout-service" style="width: 100%">
+				<h5 class="card-header checkout-service-name">Tyre Replacement</h5>
 
 				<div class="card-body row mt-0">
 					<div class="col-2">
@@ -209,21 +209,21 @@
 						</h6>
 					</div>
 					<div class="col-3">
-						<h6>CC Price:4500/-</h6>
-						<small class="text-danger">Market:<del>Rs. 6300</del></small><br>
+						<h6>CC Price: <span class="checkout-price">4500/-</span></h6>
+						<small class="text-danger">Market:Rs. <del class="market-price">6300</del></small><br>
 						<small>Time: 6 Hrs</small>
 					</div>
 					<div class="col-2 ">
-						<a href="#" class="btn btn-primary btn-block ">INFO</a> <a
-							href="#" class="btn btn-primary btn-block ">BOOK</a>
+						<button class="btn btn-primary btn-block book-checkout">BOOK</button>
+						<button class="btn btn-primary btn-block service-remove d-none">REMOVE</button>
 					</div>
 
 				</div>
 			</div>
 		</div>
 		<div class="row rounded mt-2 ml-1" style="height: 200px">
-			<div class="card" style="width: 100%">
-				<h5 class="card-header">Other Diagnosis</h5>
+			<div class="card checkout-service" style="width: 100%">
+				<h5 class="card-header checkout-service-name">Other Diagnosis</h5>
 				<div class="card-body row mt-0">
 					<div class="col-2">
 						<!--image-->
@@ -239,13 +239,13 @@
 						</h6>
 					</div>
 					<div class="col-3">
-						<h6>CC Price:4500/-</h6>
-						<small class="text-danger">Market:<del>Rs. 6300</del></small><br>
+						<h6>CC Price: <span class="checkout-price">4500/-</span></h6>
+						<small class="text-danger">Market:Rs. <del class="market-price">6300</del></small><br>
 						<small>Time: 6 Hrs</small>
 					</div>
 					<div class="col-2 ">
-						<a href="#" class="btn btn-primary btn-block ">INFO</a><br> <a
-							href="#" class="btn btn-primary btn-block ">BOOK</a>
+						<button class="btn btn-primary btn-block book-checkout">BOOK</button>
+						<button class="btn btn-primary btn-block service-remove d-none">REMOVE</button>
 					</div>
 
 				</div>

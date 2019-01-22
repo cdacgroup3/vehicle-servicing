@@ -13,30 +13,14 @@
 </head>
 
 <body>
-	<%
-		CustomerCar cc = (CustomerCar)request.getAttribute("customerCar");
-	%>
+	<!-- Header -->
+	<%@ include file="header.jsp"%>	
 	
-	<div class="container-fluid">
-		<div class="row bg-primary bg" style="height: 70px">
-			<div class="col-3 make-left ">
-				<h1 class="text-light">Car Fix</h1>
-			</div>
-			<div class="col-3"></div>
-			<div class="col-6 make-right ">
-				<button type="button" class="mr-2 mt-2 btn btn-lg text-light "
-					style="height: 50px">Home</button>
-				<button type="button" class="mr-2 mt-2 btn btn-lg text-light"
-					style="height: 50px">Change Vehicle</button>
-				<button type="button" class="mt-2 btn btn-lg text-light"
-					style="height: 50px">Log In</button>
-			</div>
-
-		</div>
-	</div>
+	<!-- Body -->
 	<div class="container-fluid  ">
 		<div class="row  make-center  " style="height: 50px">
-			<h3>How can we help with your <%= cc.getCarBrand() + " of model " + cc.getCarModel() %> ?</h3>
+			<%-- <h3>How can we help with your <%= cc.getCarBrand() + " of model " + cc.getCarModel() %> ?</h3> --%>
+			<h3>How can we help with your ${customerCar.carBrand} of model ${customerCar.carModel}?</h3>
 		</div>
 
 

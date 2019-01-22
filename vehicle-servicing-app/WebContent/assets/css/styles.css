@@ -72,7 +72,10 @@ a {
 }
 
 
-header { border-bottom: 1px solid #f0f3fa; }
+header { 
+	background: #fff;
+	border-bottom: 1px solid #f0f3fa; 
+}
 
 header .navbar { width: 100%; }
 

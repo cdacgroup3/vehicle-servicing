@@ -9,68 +9,12 @@
 <title>Car Fix | Home</title>
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/styles.css">
-<!-- <style>
-body, html {
-	height: 100%;
-	margin: 0;
-}
-
-.bg {
-	background-image: url("assets/images/1.jpg");
-	height: 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-.make-center {
-	display: flex;
-	justify-content: center;
-	align-items: center
-}
-
-.make-right {
-	display: flex;
-	justify-content: right;
-	align-items: center;
-}
-
-.beautify {
-	font-size: 35px;
-}
-</style> -->
 </head>
 <body>
-	<header class="container-fluid">
-		<div class="row">
-			<nav class="navbar navbar-expand-lg">
-				<a class="navbar-brand" href="#">
-					<img src="assets/images/logo3.png" height="85px">
-				</a>
-				<div class="navbar-collapse justify-content-end">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link h5 mr-10" href="">Why Us?</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link h5" href="">Features</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link h5" href="">Brands</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link h5" href="">Contact Us</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link h5" href="">Sign Up/Sign In</a>
-						</li>
-					</ul>
-				</div>
-				
-			</nav>
-		</div>		
-	</header>
+	<!-- Header -->
+	<%@ include file="header.jsp"%>
 
+	<!-- Body -->
 	<div class="main container-fluid">
 		<div class="row">
 			<div class="banner-box col-12 w-100">

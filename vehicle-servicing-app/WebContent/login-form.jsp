@@ -72,7 +72,7 @@
 
 					<button type="submit" class="btn btn-primary">Submit</button>
 					<br> 
-					<a href="registration.html" style="color: black; font-weight: bold; font-size: 25px">New User Register Here</a>
+					<a href="registration.htm" style="color: black; font-weight: bold; font-size: 25px">New User Register Here</a>
 				</spr:form>
 
 			</div>
