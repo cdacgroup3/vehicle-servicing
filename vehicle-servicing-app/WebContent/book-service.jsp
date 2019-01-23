@@ -160,20 +160,16 @@
  						List<String> servicePriceList = customerBill.getServicePrice();
  						Iterator<String> it1 = serviceNameList.iterator();
  						Iterator<String> it2 = servicePriceList.iterator();
- 						
- 						System.out.println(serviceNameList);
- 						System.out.println(servicePriceList);
-
  						while (it1.hasNext() && it2.hasNext()) {
  							String s1 = it1.next();
  							String s2 = it2.next();
  					%>
- 					<div class="service-item">
-						<span class="service-item-name"><%= s1 %></span>
-						<span class="service-item-price text-right"><%= s2 %></span>						
-						<spr:input type="hidden" class="service-item-name" path="serviceName" value="<%= s1 %>" />
-						<spr:input type="hidden" class="service-item-price" path="servicePrice" value="<%= s2 %>" />
- 	 				</div>
+	 					<div class="service-item">
+							<span class="service-item-name"><%= s1 %></span>
+							<span class="service-item-price text-right"><%= s2 %></span>						
+							<spr:input type="hidden" class="service-item-name" path="serviceName" value="<%= s1 %>" />
+							<spr:input type="hidden" class="service-item-price" path="servicePrice" value="<%= s2 %>" />
+	 	 				</div>
  	 				<% }
  					} %>
 				</div>	

@@ -16,6 +16,7 @@ public class CustomerBill {
 //	@Column(name="service_price")
 	private List<String> servicePrice;
 	
+	
 	public CustomerBill() {
 		super();
 	}

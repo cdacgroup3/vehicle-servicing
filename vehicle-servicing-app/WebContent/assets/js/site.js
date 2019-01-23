@@ -114,6 +114,8 @@ $(document).ready(function() {
 				"Punto EVO (Diesel)","Punto Pure (Petrol)","Punto Pure (Diesel)","Siena (Diesel)","Siena (Petrol)",
 				"Uno (Diesel)","Uno (Petrol)"]};
 	
+	
+	
 	$('#carBrand').on('change', function() {
 		$('#carModel').find('option').remove();
 		var carModel = carBrandModel[this.value];

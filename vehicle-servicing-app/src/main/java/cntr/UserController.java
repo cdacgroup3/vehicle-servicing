@@ -29,12 +29,10 @@ public class UserController {
 	private CustomerDao customerDao;
 	
 	DispatcherServlet ds;
-	HttpSession session;
 	String referrer;
 	
 	@RequestMapping(value="/home.htm")
-	public String selectCarModel(ModelMap model, HttpServletRequest request) {		
-		session = request.getSession();
+	public String selectCarModel(ModelMap model, HttpServletRequest request) {	
 		model.put("customerCar", new CustomerCar());
 		return "index";
 	}
@@ -47,14 +45,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/login-check.htm")
-	public String login(Customer customer, ModelMap model, HttpServletRequest request, HttpServletResponse response) {
+	public String login(Customer customer, ModelMap model, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		List<Customer> list = customerDao.login(customer);
 		if(list.isEmpty()) {
 			return "login-form";
 		} else {
+			session = request.getSession();
 			session.setAttribute("customer", customer);		
 			try {
-				//response.sendRedirect(request.getContextPath() + "/book-service.htm");
 				response.sendRedirect(referrer);
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -64,7 +62,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/signout.htm")
-	public void signout(HttpServletRequest request, HttpServletResponse response) {
+	public void signout(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		session = request.getSession();
 		session.invalidate(); 
 		request.getSession(true);
 		try {
@@ -103,34 +102,6 @@ public class UserController {
 	public String selectService(CustomerCar customerCar) {
 		return "select-service";
 	}
-	
-	/*@RequestMapping(value="/servicing.htm")
-	public String selectServicing(ModelMap model) {
-		model.put("serviceType", "servicing");
-		model.put("customerBill", new CustomerBill());
-		return "book-service";
-	}
-
-	@RequestMapping(value="/repairing.htm")
-	public String selectRepairing(ModelMap model) {
-		model.put("serviceType", "repairing");
-		model.put("customerBill", new CustomerBill());
-		return "book-service";
-	}
-	
-	@RequestMapping(value="/denting.htm")
-	public String selectDenting(ModelMap model) {
-		model.put("serviceType", "denting");
-		model.put("customerBill", new CustomerBill());
-		return "book-service";
-	}
-	
-	@RequestMapping(value="/emergency.htm")
-	public String selectEmergency(ModelMap model) {
-		model.put("serviceType", "emergency");
-		model.put("customerBill", new CustomerBill());
-		return "book-service";
-	}*/
 	
 	@RequestMapping(value="/servicing.htm")
 	public void selectServicing(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
@@ -179,13 +150,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/checkout-login.htm", method = RequestMethod.POST)
-	public void showServiceCenter(CustomerBill bill, HttpServletRequest request, HttpServletResponse response) {								
+	public void showServiceCenter(CustomerBill bill, HttpServletRequest request, HttpServletResponse response, HttpSession session) {								
+		session = request.getSession();
 		List<String> serviceNameList = bill.getServiceName();
-		serviceNameList.remove(0);
 		List<String> servicePriceList = bill.getServicePrice();
-		servicePriceList.remove(0);
 		
-		session.setAttribute("customerBill", bill);
+		if(serviceNameList.size()>0 && servicePriceList.size()>0) {
+			serviceNameList.remove(0);			
+			servicePriceList.remove(0);		
+			session.setAttribute("customerBill", bill);
+		}	
 		
 		if(session.getAttribute("customer") == null) {
 			try {
@@ -206,7 +180,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/pick-service-center.htm")
-	public String selectServiceCenter(HttpServletRequest request, HttpServletResponse response) {
+	public String selectServiceCenter(ModelMap model, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		session = request.getSession();
+		Customer customer = (Customer) session.getAttribute("customer");
+		List<ServiceCenter> serviceCenters = customerDao.showServiceCenterByZip(customer);
+		model.put("serviceCenters", serviceCenters);
 		return "pick-service-center";
+	}
+	
+	@RequestMapping(value="/confirm-order.htm")
+	public String confirmOrder() {
+		return "confirm-order";
 	}
 }
