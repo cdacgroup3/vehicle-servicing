@@ -65,6 +65,9 @@ public class CustomerDao {
 				q.setString(0, customer.getCustomerName());
 				q.setString(1, customer.getPassword());
 				List<Customer> ul = q.list();
+				System.out.println(customer.getCustomerName());
+				System.out.println(customer.getPassword());
+				System.out.println(ul);
 				t.commit();
 				session.flush();
 				session.close();

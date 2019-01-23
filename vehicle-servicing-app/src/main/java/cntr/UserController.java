@@ -82,9 +82,13 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/performRegistration.htm")
-	public String performRegistration(Customer customer) {
+	public void performRegistration(Customer customer, HttpServletRequest request, HttpServletResponse response) {
 		customerDao.createUser(customer);		
-		return "login-form";
+		try {
+			response.sendRedirect(request.getContextPath() + "/login.htm");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@RequestMapping(value="/performServiceCenterRegistration.htm")

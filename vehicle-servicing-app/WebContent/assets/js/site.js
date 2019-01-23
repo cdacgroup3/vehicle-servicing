@@ -122,6 +122,8 @@ $(document).ready(function() {
 			 $("#carModel").append(itemval);
 		});
 	});
+	
+	
 });
 
 function SolidCost(){

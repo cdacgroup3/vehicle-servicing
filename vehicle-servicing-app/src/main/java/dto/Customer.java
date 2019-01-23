@@ -8,17 +8,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name="customer")
 public class Customer {
-	@Column(name="customer_name")
-	private String customerName;
 	@Id
 	@Column(name="mobile_no")
-	private long mobileNo;
+	private Long mobileNo;
+	@Column(name="customer_name")
+	private String customerName;
 	@Column
 	private String password;
 	@Column
 	private String email;
 	@Column
-	private int zipcode;
+	private Integer zipcode;
 	@Column
 	private String address;
 	
@@ -26,14 +26,23 @@ public class Customer {
 		super();
 	}
 
-	public Customer(String customerName, long mobileNo, String password, String email, int zipcode, String address) {
+	public Customer(Long mobileNo, String customerName, String password, String email, Integer zipcode,
+			String address) {
 		super();
-		this.customerName = customerName;
 		this.mobileNo = mobileNo;
+		this.customerName = customerName;
 		this.password = password;
 		this.email = email;
 		this.zipcode = zipcode;
 		this.address = address;
+	}
+
+	public Long getMobileNo() {
+		return mobileNo;
+	}
+
+	public void setMobileNo(Long mobileNo) {
+		this.mobileNo = mobileNo;
 	}
 
 	public String getCustomerName() {
@@ -42,14 +51,6 @@ public class Customer {
 
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
-	}
-
-	public long getMobileNo() {
-		return mobileNo;
-	}
-
-	public void setMobileNo(long mobileNo) {
-		this.mobileNo = mobileNo;
 	}
 
 	public String getPassword() {
@@ -68,11 +69,11 @@ public class Customer {
 		this.email = email;
 	}
 
-	public int getZipcode() {
+	public Integer getZipcode() {
 		return zipcode;
 	}
 
-	public void setZipcode(int zipcode) {
+	public void setZipcode(Integer zipcode) {
 		this.zipcode = zipcode;
 	}
 
@@ -86,9 +87,7 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [customerName=" + customerName + ", mobileNo=" + mobileNo + ", password=" + password
+		return "Customer [mobileNo=" + mobileNo + ", customerName=" + customerName + ", password=" + password
 				+ ", email=" + email + ", zipcode=" + zipcode + ", address=" + address + "]";
 	}
-	
-	
 }
