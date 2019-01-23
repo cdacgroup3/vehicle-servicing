@@ -8,53 +8,13 @@
 <meta charset="ISO-8859-1">
 <title>Login</title>
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<style>
-.bg {
-	background-image: url("1.jpg");
-	height: 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-.make-center {
-	display: flex;
-	justify-content: center;
-	align-items: center
-}
-
-.make-right {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-}
-
-.make-left {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-}
-
-.beautify {
-	font-weight: bold;
-	font-size: 25px;
-	color: black;
-}
-</style>
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-	<div class=" container-fluid sticky-top">
-		<div class="row bg-primary" style="height: 70px;">
-			<div class="col-3 make-left">
-				<a href="home.html" style="color: black"><h3>HOME</h3></a>
-			</div>
-			<div class="col-6 make-center">
-				<h1>LOGIN FORM</h1>
-			</div>
-			<div class=" col-3 make-right mt-2"></div>
+	<!-- Header -->
+	<%@ include file="header.jsp"%>
 
-		</div>
-	</div>
+	<!-- Body -->	
 	<div class=" bg container-fluid">
 		<div class="row ">
 			<div class="col-4"></div>

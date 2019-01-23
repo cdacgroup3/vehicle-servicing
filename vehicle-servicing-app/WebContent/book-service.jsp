@@ -20,8 +20,32 @@
 
 	<!-- Body -->
 	<div class="container-fluid">
-		<!--body selection buttons-->
-		<div class=" row  bg-primary mt-1"
+		<!-- Service selection tabs -->
+		<div class="row mt-4 mb-3 service-tab">
+			<ul class="nav w-100">
+				<li class="col-3">
+					<button type="button"
+						class="btn btn-block btn-lg btn-outline-success"
+						id="servicing-service-tab">Servicing</button>
+				</li>
+				<li class="col-3">
+					<button type="button"
+						class="btn btn-block btn-lg  btn-outline-success"
+						id="repairing-service-tab">Repairing</button>
+				</li>
+				<li class="col-3">
+					<button type="button"
+						class="btn btn-block btn-lg btn-outline-success"
+						id="denting-service-tab">Denting/Painting</button>
+				</li>
+				<li class="col-3">
+					<button type="button"
+						class="btn btn-block btn-lg btn-outline-success"
+						id="emergency-service-tab">Emergency</button>
+				</li>
+			</ul>
+		</div>
+		<!-- <div class=" row  bg-primary mt-1"
 			style="height: 40px; background: whitesmoke; width: 100%; margin: 0%">
 			<div class="col-3">
 				<button type="button" 
@@ -39,8 +63,7 @@
 				<button type="button"
 					class="btn btn-outline-secondary text-light btn-block" id="emergency-service-tab">Emergency</button>
 			</div>
-
-		</div>
+		</div> -->
 	</div>
 
 	<div class="container-fluid">
@@ -202,5 +225,12 @@
 	
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/site.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			let name = '<%= session.getAttribute("serviceType") %>';
+			console.log($("#"+name+"-service-tab").parent());
+			$("#"+name+"-service-tab").parent().addClass('active');
+		});
+	</script>
 </body>
 </html>

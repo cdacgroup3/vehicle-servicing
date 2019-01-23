@@ -100,7 +100,7 @@ public class UserController {
 		return "select-service";
 	}
 	
-	@RequestMapping(value="/servicing.htm")
+	/*@RequestMapping(value="/servicing.htm")
 	public String selectServicing(ModelMap model) {
 		model.put("serviceType", "servicing");
 		model.put("customerBill", new CustomerBill());
@@ -124,6 +124,52 @@ public class UserController {
 	@RequestMapping(value="/emergency.htm")
 	public String selectEmergency(ModelMap model) {
 		model.put("serviceType", "emergency");
+		model.put("customerBill", new CustomerBill());
+		return "book-service";
+	}*/
+	
+	@RequestMapping(value="/servicing.htm")
+	public void selectServicing(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
+		model.put("serviceType", "servicing");
+		try {
+			response.sendRedirect(request.getContextPath() + "/book-service.htm");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@RequestMapping(value="/repairing.htm")
+	public void selectRepairing(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
+		model.put("serviceType", "repairing");
+		try {
+			response.sendRedirect(request.getContextPath() + "/book-service.htm");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value="/denting.htm")
+	public void selectDenting(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
+		model.put("serviceType", "denting");
+		try {
+			response.sendRedirect(request.getContextPath() + "/book-service.htm");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value="/emergency.htm")
+	public void selectEmergency(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
+		model.put("serviceType", "emergency");
+		try {
+			response.sendRedirect(request.getContextPath() + "/book-service.htm");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value="/book-service.htm")
+	public String bookService(ModelMap model) {
 		model.put("customerBill", new CustomerBill());
 		return "book-service";
 	}

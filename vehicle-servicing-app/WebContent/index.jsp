@@ -36,13 +36,22 @@
 										<spr:select class="form-control" path="carBrand" id="carBrand">
 											<spr:option value="Honda">Honda</spr:option>
 											<spr:option value="Hyundai">Hyundai</spr:option>
+											<spr:option value="Maruti Suzuki">Maruti Suzuki</spr:option>
+											<spr:option value="Toyota">Toyota</spr:option>
+											<spr:option value="Ford">Ford</spr:option>
+											<spr:option value="Fiat">Fiat</spr:option>
 										</spr:select>
 									</div>
 									<div class="form-group">
 										<label for="carModel"><span class="h6">MODEL</span></label>
 										<spr:select class="form-control" path="carModel" id="carModel">
-											<spr:option value="Accent">Accent(Diesel)</spr:option>
-											<spr:option value="Accent">Accent(Petrol)</spr:option>
+											<spr:option value="Accent(Diesel)">Accent(Diesel)</spr:option>
+											<spr:option value="Accent(Petrol)">Accent(Petrol)</spr:option>
+											<spr:option value="Accord (Petrol)">Accord (Petrol)</spr:option>
+											<spr:option value="Amaze (Diesel)">Amaze (Diesel)</spr:option>
+											<spr:option value="Amaze (Petrol)">Amaze (Petrol)</spr:option>
+											<spr:option value="Brio (Petrol)">Brio (Petrol)</spr:option>											
+											<spr:option value="CR V (Petrol)">CR V (Petrol)</spr:option>
 										</spr:select>
 									</div>
 									<div class="make-center">										
@@ -56,7 +65,7 @@
 			</div>
 		</div>
 
-		<div class="row justify-content-center text-center pt-5 pb-5">
+		<div class="row justify-content-center text-center pt-5 pb-5" id="why-us">
 			<div class="col-12">
 				<h2>WHY US?</h2>
 			</div>
@@ -87,7 +96,7 @@
 			</div>			
 		</div>
 
-		<div class="row justify-content-center text-center how-it-works pt-5 pb-5">
+		<div class="row justify-content-center text-center how-it-works pt-5 pb-5" id="features">
 			<div class="col-12 mt-2">
 				<h2>HOW IT WORKS</h2>
 			</div>
@@ -123,7 +132,7 @@
 			</div>			
 		</div>
 
-		<div class="row justify-content-center text-center pt-5 pb-5">
+		<div class="row justify-content-center text-center pt-5 pb-5" id="brands">
 			<div class="col-12 mt-2">
 				<h2>WE SERVICE ALL MAKES AND MODELS</h2>
 			</div>
@@ -149,5 +158,8 @@
 			</div>
 		</div>
 	</div>
+	
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/site.js"></script>
 </body>
 </html>

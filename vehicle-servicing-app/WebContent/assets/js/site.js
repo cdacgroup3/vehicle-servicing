@@ -18,21 +18,29 @@ $(document).ready(function() {
 	$("#servicing-service-tab").click(function name() {
 		$(".service-info-book").attr("data-visible", "false");
 		$(".service-info-book").eq(0).attr("data-visible", "true");
+		$(this).parent().siblings().removeClass('active');
+		$(this).parent().addClass('active');
 	});
 	
 	$("#repairing-service-tab").click(function name() {
 		$(".service-info-book").attr("data-visible", "false");
 		$(".service-info-book").eq(1).attr("data-visible", "true");
+		$(this).parent().siblings().removeClass('active');
+		$(this).parent().addClass('active');
 	});
 	
 	$("#denting-service-tab").click(function name() {
 		$(".service-info-book").attr("data-visible", "false");
 		$(".service-info-book").eq(2).attr("data-visible", "true");
+		$(this).parent().siblings().removeClass('active');
+		$(this).parent().addClass('active');
 	});
 	
 	$("#emergency-service-tab").click(function name() {
 		$(".service-info-book").attr("data-visible", "false");
 		$(".service-info-book").eq(3).attr("data-visible", "true");
+		$(this).parent().siblings().removeClass('active');
+		$(this).parent().addClass('active');
 	});
 	
 	var sum=0;
@@ -76,6 +84,43 @@ $(document).ready(function() {
 	
 	$("#checkout-login").click(function name() {
 		window.location.href="../vehicle-servicing-app/login.htm";
+	});
+	
+	//var carBrandModel = { Honda:["Accent(Diesel)", "Accent(Petrol)"], Hyundai:["Accent(D)", "Accent(P)"] };
+	
+	var carBrandModel = { Honda:["Accent(Diesel)", "Accent(Petrol)","Accord (Petrol)","Amaze (Diesel)",
+		"Amaze (Petrol)","Brio (Petrol)","CR V (Petrol)","CRV (Diesel)","City (Diesel)","City (Petrol)",
+		"Civic (Petrol)","Jazz (Diesel)","Jazz (Petrol)","Mobilio (Diesel)","Mobilio (Petrol)"], 
+		Hyundai:["Accent (Diesel)","Accent (Petrol)","Creta (Diesel)","Creta (Petrol)","Elantra (Diesel)",
+			"Elantra (Petrol)","Elite i10 (Diesel)","Elite i10 (Petrol)","Eon (Petrol)","Eon (LPG)",
+			"Getz (Petrol)","Grand i10 (Diesel)","Grand i10 (LPG)","Grand i10 (Petrol)","Grand i10 (CNG)"],
+		"Maruti Suzuki":["800 MPFI (Petrol)","800 Non MPFI (Petrol)",">A Star (Petrol)","Alto (Petrol)",
+			"Alto 800 (Petrol)","Alto 800 (CNG)","Alto k10 (Petrol)","Alto k10 (CNG)","Baleno (Diesel)",
+			"Baleno (Petrol)","Celerio (Petrol)","Celerio (Diesel)","Celerio (CNG)","Ciaz (Diesel)",
+			"Ciaz (Petrol)","Eeco (CNG)","Eeco (Petrol)","Ertiga (Diesel)","Ertiga (Petrol)","Ertiga (CNG)",
+			"Esteem (Petrol)","Grand Vitara (Petrol)","Grand Vitara Brezza (Diesel)","Gypsy (Petrol)",
+			"Kizashi (Petrol)","Omni (Petrol)"],	
+		Toyota:["Camry (Petrol)","Corolla (Petrol)","Corolla Altis (Petrol)","Corolla Altis (Diesel)",
+			"Etios (Diesel)","Etios (Petrol)","Etios Cross (Diesel)","Etios Cross (Petrol)","Etios Liva (Petrol)",
+			"Etios Liva (Diesel)","Fortuner (Diesel)","Innova (Diesel)","Innova (Petrol)",
+			"Land Cruiser 200(Diesel)","Land Cruiser prade (Diesel)","Prius (Petrol)","Qualis (Diesel)",
+			"Qualis (Petrol)"],
+		Ford:["Classic (Petrol)","Classic (Diesel)","Ecosport (Petrol)", "Ecosport (Diesel)","Endeavour (Diesel)",
+			"Escort (Petrol)","Fiesta (Petrol)","Figo Aspire (Petrol)","Fusion (Petrol)","Fusion (Diesel)",
+			"Ikon (Petrol)"],
+		Fiat:["Abarth Avventura (Petrol)","Abarth Punto (Petrol)","Avventura (Diesel)","Avventura (Petrol)",
+				"Linea (Diesel)","Linea (Petrol)","Linea Classic (Diesel)","Linea Classic (Petrol)",
+				"Palio (Diesel)","Palio (Petrol)","Palio Adventure (Petrol)","Punto EVO (Petrol)",
+				"Punto EVO (Diesel)","Punto Pure (Petrol)","Punto Pure (Diesel)","Siena (Diesel)","Siena (Petrol)",
+				"Uno (Diesel)","Uno (Petrol)"]};
+	
+	$('#carBrand').on('change', function() {
+		$('#carModel').find('option').remove();
+		var carModel = carBrandModel[this.value];
+		$.each(carModel, function(index, value) {
+			 var itemval= '<option value="' + value + '">' + value + '</option>';
+			 $("#carModel").append(itemval);
+		});
 	});
 });
 

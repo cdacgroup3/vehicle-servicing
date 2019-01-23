@@ -33,7 +33,6 @@
 						<li>No paint defects, 1 year warranty</li>
 						<li>Lowest prices</li>
 						<li>High quality paint only</li>
-
 						</h6>
 					</div>
 					<div class="col-3">

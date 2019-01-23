@@ -4,19 +4,19 @@
 	<header class="container-fluid sticky-top">
 		<div class="row">
 			<nav class="navbar navbar-expand-lg">
-				<a class="navbar-brand" href="#">
-					<img src="assets/images/logo3.png" height="85px">
+				<a class="navbar-brand" href="home.htm">
+					<img src="assets/images/logo.png" height="85px">
 				</a>
 				<div class="navbar-collapse justify-content-end">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link h5 mr-10" href="">Why Us?</a>
+							<a class="nav-link h5 mr-10" href="home.htm#why-us">Why Us?</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link h5" href="">Features</a>
+							<a class="nav-link h5" href="home.htm#features">Features</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link h5" href="">Brands</a>
+							<a class="nav-link h5" href="home.htm#brands">Brands</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link h5" href="">Contact Us</a>

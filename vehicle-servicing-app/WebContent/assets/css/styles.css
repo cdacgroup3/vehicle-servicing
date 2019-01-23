@@ -72,19 +72,22 @@ a {
 }
 
 
-header { 
-	background: #fff;
-	border-bottom: 1px solid #f0f3fa; 
+header { background: #01704f; }
+
+header .navbar { 
+	width: 100%; 
+	padding: 0 1rem;
 }
 
-header .navbar { width: 100%; }
+.navbar-expand-lg .navbar-nav .nav-link { 
+	padding: .5rem 15px; 
+	color: #fff;
+}
 
-.navbar-expand-lg .navbar-nav .nav-link { padding: .5rem 15px; }
-
-.navbar-expand-lg .navbar-nav .nav-link:hover { color: #01704f; }
+.navbar-expand-lg .navbar-nav .nav-link:hover { color: #35B729; }
 
 .banner-box {
-	height: calc(100vh - 112px);
+	height: calc(100vh - 95px);
 	background: url('../images/home-banner.jpg') top left/cover no-repeat;
 	position: relative;
 }
@@ -135,6 +138,35 @@ header .navbar { width: 100%; }
 }
 
 
+.select-service-page .main { position: relative; }
+
+.select-service-page .main::before {
+  content: "";
+  position: absolute;
+  width: calc(100vw - 32px);
+  height: 100%;
+  z-index: -1;
+  background: url('../images/bg.select-service.png');
+  background-size: 300px auto;
+  opacity: 0.1;
+}
+
+
+.help-car-name {
+	padding: 20px 0 5px;
+}
+
+.select-service-page .card { cursor: pointer; }
+.select-service-page .card:hover {
+	z-index: 10;
+    box-shadow: 0 10px 40px rgba(5,95,35,0.3);
+}
+
+.select-service-page .card-img-top { 
+	object-fit: contain; 
+	margin-top: 15px;
+}
+
 
 [data-visible="true"] {
 	display: block;
@@ -143,4 +175,9 @@ header .navbar { width: 100%; }
 [data-visible="false"] {
 	display: none !important;
 }
-              
+
+.service-tab .active button { 
+	background-color: #28a745;
+	color: #fff; 
+}       
+        

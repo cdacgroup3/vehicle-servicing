@@ -22,9 +22,11 @@
 							<li>Every 10,000 kms or 6 months</li>
 						</h6>
 					</div>
-					<div class="col-3">
-						<h6 class="checkout-price">CC Price:4500/-</h6>
-						<small class="text-danger market-price">Market:<del>Rs. 6300</del></small><br>
+					<div class="col-3">						
+						<h6>
+							CC Price:<span class="checkout-price"> 7500/-</span>
+						</h6>
+						<small class="text-danger market-price">Market: Rs.<del class="market-price">6300</del></small><br>
 						<small>Time: 6 Hrs</small>
 					</div>
 					<div class="col-2 ">
@@ -56,9 +58,11 @@
 
 						</h6>
 					</div>
-					<div class="col-3">
-						<h6 class="checkout-price">CC Price:4500/-</h6>
-						<small class="text-danger">Market:<del>Rs. 6300</del></small><br>
+					<div class="col-3">						
+						<h6>
+							CC Price:<span class="checkout-price"> 5000/-</span>
+						</h6>
+						<small class="text-danger">Market:Rs. <del class="market-price">6300</del></small><br>
 						<small>Time: 6 Hrs</small>
 					</div>
 					<div class="col-2 ">
@@ -89,8 +93,10 @@
 						</h6>
 					</div>
 					<div class="col-3">
-						<h6 class="checkout-price">CC Price:4500/-</h6>
-						<small class="text-danger">Market:<del>Rs. 6300</del></small><br>
+						<h6>
+							CC Price:<span class="checkout-price"> 4500/-</span>
+						</h6>
+						<small class="text-danger">Market: Rs.<del class="market-price">6300</del></small><br>
 						<small>Time: 6 Hrs</small>
 					</div>
 					<div class="col-2 ">
