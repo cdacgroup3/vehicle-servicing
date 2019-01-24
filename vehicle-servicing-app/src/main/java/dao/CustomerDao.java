@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import dto.Customer;
+import dto.CustomerBill;
 import dto.ServiceCenter;
 
 @Repository
@@ -57,6 +59,19 @@ public class CustomerDao {
 		});
 	}
 	
+	public void createBill(final CustomerBill customerBill) {
+		hibernateTemplate.execute(new HibernateCallback<List<ServiceCenter>>() {
+			public List<ServiceCenter> doInHibernate(Session session) throws HibernateException {
+				Transaction t = session.beginTransaction();
+				session.save(customerBill);
+				t.commit();
+				session.flush();
+				session.close();
+				return null;
+			}
+		});
+	}
+	
 	public List<Customer> login(Customer customer) {
 		List<Customer> list = hibernateTemplate.execute(new HibernateCallback<List<Customer>>() {
 			public List<Customer> doInHibernate(Session session) throws HibernateException {
@@ -91,6 +106,41 @@ public class CustomerDao {
 		return list;
 	}
 	
+	public List<Customer> showCustomerByName(String customerName) {
+		List<Customer> list = hibernateTemplate.execute(new HibernateCallback<List<Customer>>() {
+			public List<Customer> doInHibernate(Session session) throws HibernateException {
+				Transaction t = session.beginTransaction();
+				Query q = session.createQuery("from Customer where customerName = ?");
+				q.setString(0, customerName);
+				List<Customer> ul = q.list();
+				System.out.println(ul);
+				
+				t.commit();
+				session.flush();
+				session.close();
+				return ul;
+			}
+		});
+		return list;
+	}
+	
+	public List<ServiceCenter> showServiceCenterByMobileNo(Long serviceCenterMobileNo) {
+		List<ServiceCenter> list = hibernateTemplate.execute(new HibernateCallback<List<ServiceCenter>>() {
+			public List<ServiceCenter> doInHibernate(Session session) throws HibernateException {
+				Transaction t = session.beginTransaction();
+				Query q = session.createQuery("from ServiceCenter where mobileNo = ?");
+				q.setLong(0, serviceCenterMobileNo);
+				List<ServiceCenter> ul = q.list();
+				
+				t.commit();
+				session.flush();
+				session.close();
+				return ul;
+			}
+		});
+		return list;
+	}
+	
 	public List<ServiceCenter> showServiceCenterByZip(Customer customer) {
 		List<ServiceCenter> list = hibernateTemplate.execute(new HibernateCallback<List<ServiceCenter>>() {
 			public List<ServiceCenter> doInHibernate(Session session) throws HibernateException {
@@ -104,12 +154,29 @@ public class CustomerDao {
 				Query q2 = session.createQuery("from ServiceCenter where zipcode = ?");
 				q2.setInteger(0, customerZipcode);
 				List<ServiceCenter> ul2 = q2.list();
-				System.out.println(ul2);
 				
 				t.commit();
 				session.flush();
 				session.close();
 				return ul2;
+			}
+		});
+		return list;
+	}	
+
+	
+	public List<CustomerBill> getCustomerOrders(Long mobileNo) {
+		List<CustomerBill> list = hibernateTemplate.execute(new HibernateCallback<List<CustomerBill>>() {
+			public List<CustomerBill> doInHibernate(Session session) throws HibernateException {
+				Transaction t = session.beginTransaction();
+				Query q = session.createQuery("from CustomerBill where mobile_no=?");
+				q.setLong(0, mobileNo);
+				List<CustomerBill> ul = q.list();
+				
+				t.commit();
+				session.flush();
+				session.close();
+				return ul;
 			}
 		});
 		return list;

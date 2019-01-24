@@ -15,8 +15,7 @@
 </head>
 <body>
 	<!-- Header -->
-	<%@ include file="header.jsp"%>
-	
+	<%@ include file="header.jsp"%>	
 
 	<!-- Body -->
 	<div class="container-fluid">
@@ -45,36 +44,16 @@
 				</li>
 			</ul>
 		</div>
-		<!-- <div class=" row  bg-primary mt-1"
-			style="height: 40px; background: whitesmoke; width: 100%; margin: 0%">
-			<div class="col-3">
-				<button type="button" 
-					class="btn btn-outline-secondary text-light btn-block" id="servicing-service-tab">Servicing</button>
-			</div>
-			<div class="col-3">
-				<button type="button"
-					class="btn btn-outline-secondary text-light btn-block" id="repairing-service-tab">Repairing</button>
-			</div>
-			<div class="col-3">
-				<button type="button"
-					class="btn btn-outline-secondary text-light btn-block" id="denting-service-tab">Denting/Painting</button>
-			</div>
-			<div class="col-3">
-				<button type="button"
-					class="btn btn-outline-secondary text-light btn-block" id="emergency-service-tab">Emergency</button>
-			</div>
-		</div> -->
+		
 	</div>
 
 	<div class="container-fluid">
 	<div class="row">
 	<div class="col-8">
-	<%
-		String serviceType = (String) request.getAttribute("serviceType");
-	%>
-	<%
-		if (serviceType.equals("servicing")) {
-	%>
+		<%
+			String serviceType = (String) request.getAttribute("serviceType");
+			if (serviceType.equals("servicing")) {
+		%>
 		<div class="service-info-book" data-visible="true">
 			<%@ include file="book-servicing.jsp"%>
 		</div>
@@ -195,7 +174,15 @@
 					</div>
 					<div class="col-4">
 						<h6>
-							<span class="text-dark" id="totalprice"> Rs.0 </span>
+							<% 
+							int total = 0;
+							if(session.getAttribute("customerBill")!=null) { 
+								CustomerBill customerBill = (CustomerBill)session.getAttribute("customerBill");
+								total = customerBill.getTotalPrice();
+							}
+							%> 								
+							<span class="text-dark" id="totalprice"> Rs. <%= total %> </span>
+							<spr:input type="hidden" path="totalPrice" value="<%= total %>" />
 						</h6>
 					</div>
 				</div>

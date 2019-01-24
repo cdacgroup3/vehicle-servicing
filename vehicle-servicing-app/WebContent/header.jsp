@@ -23,7 +23,7 @@
 						</li>
 						<%  if(session.getAttribute("customer")!=null || session.getAttribute("serviceCenter")!=null) { %>
 						<li class="nav-item">
-							<a class="nav-link h5" href="">Account</a>
+							<a class="nav-link h5" href="account.htm">Account</a>
 						</li>
 						<% } %>
 						<li class="nav-item">

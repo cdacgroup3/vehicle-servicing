@@ -28,6 +28,7 @@
 			<list>
 				<value>dto.Customer</value>
 				<value>dto.ServiceCenter</value>
+				<value>dto.CustomerBill</value>
 			</list>
 		</property>
 	</bean>

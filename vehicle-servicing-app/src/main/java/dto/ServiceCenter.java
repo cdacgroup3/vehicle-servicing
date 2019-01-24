@@ -10,9 +10,11 @@ import javax.persistence.Table;
 public class ServiceCenter {
 	@Column(name="service_center_name")
 	private String serviceCenterName;
+	
 	@Id
-	@Column(name="mobile_no")
+	@Column(name="service_center_mobile_no")
 	private Long mobileNo;
+	
 	@Column
 	private String password;
 	@Column

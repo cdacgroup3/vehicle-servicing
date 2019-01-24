@@ -10,7 +10,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -177,6 +178,8 @@ public class UserController {
 		List<String> serviceNameList = bill.getServiceName();
 		List<String> servicePriceList = bill.getServicePrice();
 		
+		System.out.println("bill " + bill);
+		
 		if(serviceNameList.size()>0 && servicePriceList.size()>0) {
 			serviceNameList.remove(0);			
 			servicePriceList.remove(0);		
@@ -207,12 +210,46 @@ public class UserController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		List<ServiceCenter> serviceCenters = customerDao.showServiceCenterByZip(customer);
 		model.put("serviceCenters", serviceCenters);
-		model.put("customerBill", session.getAttribute("customerBill"));
+		//model.put("customerBill", session.getAttribute("customerBill"));
+		
+		model.put("serviceCenterPicked", new ServiceCenter());
+		
+		System.out.println("before pick " + session.getAttribute("customerBill"));
 		return "pick-service-center";
 	}
 	
 	@RequestMapping(value="/confirm-order.htm")
-	public String confirmOrder() {
+	public String confirmOrder(ServiceCenter serviceCenter, HttpSession session) {		
+		CustomerBill customerBill = (CustomerBill)session.getAttribute("customerBill");
+		
+		Long serviceCenterMobileNo = serviceCenter.getMobileNo();
+		List<ServiceCenter> serviceCenters = customerDao.showServiceCenterByMobileNo(serviceCenterMobileNo);
+		ServiceCenter sc = serviceCenters.get(0);
+		
+		String customerName = ((Customer)session.getAttribute("customer")).getCustomerName();
+		List<Customer> customers = customerDao.showCustomerByName(customerName);
+		Customer c = customers.get(0);
+			
+		customerBill.setCustomer(c);	
+		customerBill.setServiceCenter(sc);		
+		
+		session.setAttribute("customerBill", customerBill);
+		System.out.println("after pick " + customerBill);
+		customerDao.createBill(customerBill);
 		return "confirm-order";
+	}
+	
+	@RequestMapping(value="/account.htm")
+	public String getCustomerOrders(ModelMap model, HttpSession session) {
+		String customerName = ((Customer) session.getAttribute("customer")).getCustomerName();
+		List<Customer> customers = customerDao.showCustomerByName(customerName);
+		Customer c = customers.get(0);
+		Long mobileNo = c.getMobileNo();
+		
+		List<CustomerBill> customerOrders = customerDao.getCustomerOrders(mobileNo);
+		System.out.println(customerOrders);
+		model.put("customerOrders", customerOrders);
+		
+		return "account-customer";
 	}
 }

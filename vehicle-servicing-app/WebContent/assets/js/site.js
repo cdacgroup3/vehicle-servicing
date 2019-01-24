@@ -62,6 +62,7 @@ $(document).ready(function() {
 		
 		sum += parseInt(servicePrice);
 		$(".check").find("#totalprice")[0].innerHTML="Rs. "+sum;
+		$(".check").find("#totalprice").next().val(sum);
 		tot += parseInt(marketPrice);
 		$(".check").find("#marketprice")[0].innerHTML="Rs. "+tot;
 		var s=Number(tot)-Number(sum);
