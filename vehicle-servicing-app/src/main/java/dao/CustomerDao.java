@@ -74,6 +74,23 @@ public class CustomerDao {
 		return list;
 	}
 	
+	public List<ServiceCenter> loginServiceCenter(ServiceCenter serviceCenter) {
+		List<ServiceCenter> list = hibernateTemplate.execute(new HibernateCallback<List<ServiceCenter>>() {
+			public List<ServiceCenter> doInHibernate(Session session) throws HibernateException {
+				Transaction t = session.beginTransaction();
+				Query q = session.createQuery("from ServiceCenter where serviceCenterName = ? and password = ?");
+				q.setString(0, serviceCenter.getServiceCenterName());
+				q.setString(1, serviceCenter.getPassword());
+				List<ServiceCenter> ul = q.list();
+				t.commit();
+				session.flush();
+				session.close();
+				return ul;
+			}
+		});
+		return list;
+	}
+	
 	public List<ServiceCenter> showServiceCenterByZip(Customer customer) {
 		List<ServiceCenter> list = hibernateTemplate.execute(new HibernateCallback<List<ServiceCenter>>() {
 			public List<ServiceCenter> doInHibernate(Session session) throws HibernateException {

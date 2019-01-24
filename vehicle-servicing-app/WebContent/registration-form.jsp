@@ -25,7 +25,8 @@
 	background: #f4f7f8;
 }
 
-input.invalid {
+input.invalid,
+textarea.invalid {
 	border: 1px solid red;
 }
 
@@ -272,6 +273,93 @@ input.invalid {
 			
 			if(flag==true) {
 				 $("#customer-register-form").submit();
+			} 
+		});
+
+		$("#centerRegisterBtn").on('click', function(e){
+	        e.preventDefault();
+			let flag = true;
+	        
+			var input = $("#center-name").val();
+			if(input){
+				$('#center-name').removeClass("invalid").addClass("valid");
+				$('#center-name').next('span').remove();
+			}
+			else {
+				if($('#center-name').next('span').length == 0) {
+					$('#center-name').after('<span class="text-danger">Name can\'t be empty!</span>');
+				} 					
+				$('#center-name').removeClass("valid").addClass("invalid");
+				flag = false;
+			}
+			var regex = /^[0-9]{10}$/;
+			var is_mobile = regex.test($('#center-mobile-no').val());
+			if(is_mobile){
+				$('#center-mobile-no').removeClass("invalid").addClass("valid");
+				$('#center-mobile-no').next('span').remove();
+			}
+			else {
+				if($('#center-mobile-no').next('span').length == 0) {
+					$('#center-mobile-no').after('<span class="text-danger">Mobile no should be 10 digits!</span>');
+				}
+				$('#center-mobile-no').removeClass("valid").addClass("invalid");
+				flag = false;
+			}
+			regex = /^.{6,}$/;
+			var is_password = regex.test($('#center-password').val());
+			if(is_password){
+				$('#center-password').removeClass("invalid").addClass("valid");
+				$('#center-password').next('span').remove();
+			}
+			else {
+				if($('#center-password').next('span').length == 0) {
+					$('#center-password').after('<span class="text-danger">Password should be minimum 6 characters!</span>');
+				}
+				$('#center-password').removeClass("valid").addClass("invalid");
+				flag = false;
+			}
+			regex = /^[0-9]{6}$/;
+			var is_zipcode = regex.test($('#center-zipcode').val());
+			if(is_zipcode){
+				$('#center-zipcode').removeClass("invalid").addClass("valid");
+				$('#center-zipcode').next('span').remove();
+			}
+			else {
+				if($('#center-zipcode').next('span').length == 0) {
+					$('#center-zipcode').after('<span class="text-danger">Zipcode should be 6 digits!</span>');
+				}					
+				$('#center-zipcode').removeClass("valid").addClass("invalid");
+				flag = false;
+			}
+			
+			regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+			var is_email = regex.test($('#center-email').val());
+			if(is_email){
+				$('#center-email').removeClass("invalid").addClass("valid");
+				$('#center-email').next('span').remove();
+			}
+			else {
+				if($('#center-email').next('span').length == 0) {
+					$('#center-email').after('<span class="text-danger">Email id is not valid!</span>');
+				}					
+				$('#center-email').removeClass("valid").addClass("invalid");
+				flag = false;
+			}
+			input = $("#center-address").val();
+			if(input){
+				$('#center-address').removeClass("invalid").addClass("valid");
+				$('#center-address').next('span').remove();
+			}
+			else {
+				if($('#center-address').next('span').length == 0) {
+					$('#center-address').after('<span class="text-danger">Address can\'t be empty!</span>');
+				} 					
+				$('#center-address').removeClass("valid").addClass("invalid");
+				flag = false;
+			}
+			
+			if(flag==true) {
+				 $("#center-register-form").submit();
 			} 
 		});
 

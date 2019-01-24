@@ -27,6 +27,9 @@
 						</div>
 					</div>
 					<div class="col-6">
+						<%
+							if(session.getAttribute("serviceCenter")== null) {
+						%> 
 						<div class="card mx-auto rounded">
 							<div class="card-body">
 								<h4 class="card-title mb-4">Car Selection</h4>
@@ -60,6 +63,9 @@
 								</spr:form>
 							</div>
 						</div>
+						<%
+							}
+						%>
 					</div>
 				</div>
 			</div>

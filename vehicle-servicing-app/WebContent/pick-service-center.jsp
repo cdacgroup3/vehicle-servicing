@@ -23,24 +23,25 @@
 	
 	<h1>PICK SERVICE CENTER</h1>
 	
-	<spr:form action="confirm-order.htm" commandName="serviceCenterName">
+	<spr:form action="confirm-order.htm" commandName="customerBill">
 	<%
 		List<ServiceCenter> serviceCenters = (List<ServiceCenter>) request.getAttribute("serviceCenters");
 		Iterator<ServiceCenter> it = serviceCenters.iterator();
 		while (it.hasNext()) {
 			ServiceCenter sc = it.next();
+			System.out.println(sc);
 	%>
 		<div>
+			<%-- <spr:radiobutton value="<%= sc.getMobileNo() %>" path="serviceCenterMobileNo" /> --%>
 			<h3><%= sc.getServiceCenterName() %></h3>
 			<span>Email: <%= sc.getEmail() %></span>
 			<span>Mobile No: <%= sc.getMobileNo() %></span>
 			<span>Address: <%= sc.getAddress() %></span>
 			<span>Zipcode: <%= sc.getZipcode() %></span>
-			<input type="hidden" value="<%= sc.getServiceCenterName() %>">
 		</div>		
 	<% } %>
 	
-	<button type="submit" class="btn">CONFIRM BOOKING</button>
+		<button type="submit" class="btn">CONFIRM BOOKING</button>
 	</spr:form>
 </body>
 </html>

@@ -40,6 +40,7 @@ public class UserController {
 	@RequestMapping(value="/login.htm")
 	public String prepareLoginForm(ModelMap model, HttpServletRequest request) {
 		model.put("customer", new Customer());
+		model.put("serviceCenter", new ServiceCenter());
 		referrer = request.getHeader("referer");
 		return "login-form";
 	}
@@ -48,6 +49,8 @@ public class UserController {
 	public String login(Customer customer, ModelMap model, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		List<Customer> list = customerDao.login(customer);
 		if(list.isEmpty()) {
+			model.put("customer", new Customer());
+			model.put("serviceCenter", new ServiceCenter());
 			return "login-form";
 		} else {
 			session = request.getSession();
@@ -60,6 +63,26 @@ public class UserController {
 			return null;
 		}
 	}
+	
+	@RequestMapping(value="/center-login-check.htm")
+	public String serviceCenterLogin(ServiceCenter serviceCenter, ModelMap model, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		List<ServiceCenter> list = customerDao.loginServiceCenter(serviceCenter);
+		if(list.isEmpty()) {
+			model.put("customer", new Customer());
+			model.put("serviceCenter", new ServiceCenter());
+			return "login-form";
+		} else {
+			session = request.getSession();
+			session.setAttribute("serviceCenter", serviceCenter);		
+			try {
+				response.sendRedirect(referrer);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		
+			return null;
+		}
+	}
+	
 	
 	@RequestMapping(value="/signout.htm")
 	public void signout(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
@@ -93,9 +116,8 @@ public class UserController {
 	@RequestMapping(value="/performServiceCenterRegistration.htm")
 	public String performServiceCenterRegistration(ServiceCenter serviceCenter) {
 		customerDao.createServiceCenter(serviceCenter);
-		return "book-service";
+		return "index";
 	}
-	
 	
 	
 	@RequestMapping(value="/select-service.htm")
@@ -185,6 +207,7 @@ public class UserController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		List<ServiceCenter> serviceCenters = customerDao.showServiceCenterByZip(customer);
 		model.put("serviceCenters", serviceCenters);
+		model.put("customerBill", session.getAttribute("customerBill"));
 		return "pick-service-center";
 	}
 	

@@ -21,13 +21,13 @@
 						<li class="nav-item">
 							<a class="nav-link h5" href="">Contact Us</a>
 						</li>
-						<%  if(session.getAttribute("customer") != null) { %>
+						<%  if(session.getAttribute("customer")!=null || session.getAttribute("serviceCenter")!=null) { %>
 						<li class="nav-item">
 							<a class="nav-link h5" href="">Account</a>
 						</li>
 						<% } %>
 						<li class="nav-item">
-							<%  if(session.getAttribute("customer") == null) { %>
+							<%  if(session.getAttribute("customer")== null && session.getAttribute("serviceCenter")== null) { %>
 							<a class="nav-link h5" href="login.htm">Sign Up/Sign In</a>
 							<% } else { %>
 							<a class="nav-link h5" href="signout.htm">Sign Out</a>
