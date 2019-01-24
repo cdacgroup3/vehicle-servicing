@@ -12,24 +12,24 @@ public class ServiceCenter {
 	private String serviceCenterName;
 	@Id
 	@Column(name="mobile_no")
-	private long mobileNo;
+	private Long mobileNo;
 	@Column
 	private String password;
 	@Column
 	private String email;
 	@Column
-	private int zipcode;
+	private Integer zipcode;
 	@Column
 	private String address;
 	@Column
-	private int slot;
+	private Integer slot;
 	
 	public ServiceCenter() {
 		super();
 	}
 
-	public ServiceCenter(String serviceCenterName, long mobileNo, String password, String email, int zipcode,
-			String address, int slot) {
+	public ServiceCenter(String serviceCenterName, Long mobileNo, String password, String email, Integer zipcode,
+			String address, Integer slot) {
 		super();
 		this.serviceCenterName = serviceCenterName;
 		this.mobileNo = mobileNo;
@@ -48,11 +48,11 @@ public class ServiceCenter {
 		this.serviceCenterName = serviceCenterName;
 	}
 
-	public long getMobileNo() {
+	public Long getMobileNo() {
 		return mobileNo;
 	}
 
-	public void setMobileNo(long mobileNo) {
+	public void setMobileNo(Long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
 
@@ -72,11 +72,11 @@ public class ServiceCenter {
 		this.email = email;
 	}
 
-	public int getZipcode() {
+	public Integer getZipcode() {
 		return zipcode;
 	}
 
-	public void setZipcode(int zipcode) {
+	public void setZipcode(Integer zipcode) {
 		this.zipcode = zipcode;
 	}
 
@@ -88,11 +88,11 @@ public class ServiceCenter {
 		this.address = address;
 	}
 
-	public int getSlot() {
+	public Integer getSlot() {
 		return slot;
 	}
 
-	public void setSlot(int slot) {
+	public void setSlot(Integer slot) {
 		this.slot = slot;
 	}
 
@@ -102,4 +102,6 @@ public class ServiceCenter {
 				+ password + ", email=" + email + ", zipcode=" + zipcode + ", address=" + address + ", slot=" + slot
 				+ "]";
 	}
+
+	
 }
