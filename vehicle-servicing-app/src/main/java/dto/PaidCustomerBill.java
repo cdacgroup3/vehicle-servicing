@@ -10,17 +10,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
-import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 @Entity
-@Table(name="customer_bill")
-public class CustomerBill {
+@Table(name="paid_customer_bill")
+public class PaidCustomerBill {
 	@Id
 	@Column(name="bill_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -45,15 +43,12 @@ public class CustomerBill {
 	@Column(name="total_price")
 	private int totalPrice;
 	
-	@Column(name = "is_paid", columnDefinition="boolean default false", nullable=false)
-	private boolean isPaid = false;
-
-	public CustomerBill() {
+	public PaidCustomerBill() {
 		super();
 	}
 
-	public CustomerBill(int billId, Customer customer, ServiceCenter serviceCenter, List<String> serviceName,
-			List<String> servicePrice, int totalPrice, boolean isPaid) {
+	public PaidCustomerBill(int billId, Customer customer, ServiceCenter serviceCenter, List<String> serviceName,
+			List<String> servicePrice, int totalPrice) {
 		super();
 		this.billId = billId;
 		this.customer = customer;
@@ -61,7 +56,6 @@ public class CustomerBill {
 		this.serviceName = serviceName;
 		this.servicePrice = servicePrice;
 		this.totalPrice = totalPrice;
-		this.isPaid = isPaid;
 	}
 
 	public int getBillId() {
@@ -112,19 +106,11 @@ public class CustomerBill {
 		this.totalPrice = totalPrice;
 	}
 
-	public boolean isPaid() {
-		return isPaid;
-	}
-
-	public void setPaid(boolean isPaid) {
-		this.isPaid = isPaid;
-	}
-
 	@Override
 	public String toString() {
 		return "CustomerBill [billId=" + billId + ", customer=" + customer + ", serviceCenter=" + serviceCenter
 				+ ", serviceName=" + serviceName + ", servicePrice=" + servicePrice + ", totalPrice=" + totalPrice
-				+ ", isPaid=" + isPaid + "]";
+				+ "]";
 	}
+	
 }
-

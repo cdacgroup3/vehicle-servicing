@@ -141,6 +141,23 @@ public class CustomerDao {
 		return list;
 	}
 	
+	public List<ServiceCenter> showServiceCenterByName(String serviceCenterName) {
+		List<ServiceCenter> list = hibernateTemplate.execute(new HibernateCallback<List<ServiceCenter>>() {
+			public List<ServiceCenter> doInHibernate(Session session) throws HibernateException {
+				Transaction t = session.beginTransaction();
+				Query q = session.createQuery("from ServiceCenter where serviceCenterName = ?");
+				q.setString(0, serviceCenterName);
+				List<ServiceCenter> ul = q.list();
+				
+				t.commit();
+				session.flush();
+				session.close();
+				return ul;
+			}
+		});
+		return list;
+	}
+	
 	public List<ServiceCenter> showServiceCenterByZip(Customer customer) {
 		List<ServiceCenter> list = hibernateTemplate.execute(new HibernateCallback<List<ServiceCenter>>() {
 			public List<ServiceCenter> doInHibernate(Session session) throws HibernateException {
@@ -169,8 +186,9 @@ public class CustomerDao {
 		List<CustomerBill> list = hibernateTemplate.execute(new HibernateCallback<List<CustomerBill>>() {
 			public List<CustomerBill> doInHibernate(Session session) throws HibernateException {
 				Transaction t = session.beginTransaction();
-				Query q = session.createQuery("from CustomerBill where mobile_no=?");
+				Query q = session.createQuery("from CustomerBill where mobile_no=? and isPaid=?");
 				q.setLong(0, mobileNo);
+				q.setBoolean(1, false);
 				List<CustomerBill> ul = q.list();
 				
 				t.commit();
@@ -180,5 +198,40 @@ public class CustomerDao {
 			}
 		});
 		return list;
+	}
+	
+	public List<CustomerBill> getServiceCenterOrders(Long mobileNo) {
+		List<CustomerBill> list = hibernateTemplate.execute(new HibernateCallback<List<CustomerBill>>() {
+			public List<CustomerBill> doInHibernate(Session session) throws HibernateException {
+				Transaction t = session.beginTransaction();
+				Query q = session.createQuery("from CustomerBill where service_center_mobile_no=? and isPaid=?");
+				q.setLong(0, mobileNo);
+				q.setBoolean(1, false);
+				List<CustomerBill> ul = q.list();
+				
+				t.commit();
+				session.flush();
+				session.close();
+				return ul;
+			}
+		});
+		return list;
+	}
+	
+	public void updateBillPayment(int billId) {
+		hibernateTemplate.execute(new HibernateCallback<List<ServiceCenter>>() {
+			public List<ServiceCenter> doInHibernate(Session session) throws HibernateException {
+				Transaction t = session.beginTransaction();
+				String queryString="UPDATE CustomerBill SET is_paid=true WHERE bill_id=?";
+			    Query q=session.createQuery(queryString);
+				q.setInteger(0, billId);
+				q.executeUpdate();
+			    
+				t.commit();
+				session.flush();
+				session.close();
+				return null;
+			}
+		});
 	}
 }

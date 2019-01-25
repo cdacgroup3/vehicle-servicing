@@ -1,4 +1,3 @@
-<%@page import="dto.ServiceCenter"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="dto.CustomerBill"%>
 <%@page import="java.util.List"%>
@@ -50,6 +49,12 @@
 			</td>
 			
 			<td><%= customerBill.getTotalPrice() %></td>
+			<td>
+				<form action="approve-payment.htm" method="post">
+					<input type="hidden" name="billId" value="<%= customerBill.getBillId() %>">
+					<button type="submit">APPROVE PAYMENT</button>
+				</form>
+			</td>
 		</tr>
 		<% } %>
 	</table>

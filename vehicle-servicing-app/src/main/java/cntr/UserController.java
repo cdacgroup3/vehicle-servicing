@@ -241,15 +241,41 @@ public class UserController {
 	
 	@RequestMapping(value="/account.htm")
 	public String getCustomerOrders(ModelMap model, HttpSession session) {
-		String customerName = ((Customer) session.getAttribute("customer")).getCustomerName();
-		List<Customer> customers = customerDao.showCustomerByName(customerName);
-		Customer c = customers.get(0);
-		Long mobileNo = c.getMobileNo();
+		if(session.getAttribute("customer")!=null) {
+			String customerName = ((Customer) session.getAttribute("customer")).getCustomerName();
+			List<Customer> customers = customerDao.showCustomerByName(customerName);
+			Customer c = customers.get(0);
+			Long mobileNo = c.getMobileNo();
+			
+			List<CustomerBill> customerOrders = customerDao.getCustomerOrders(mobileNo);
+			model.put("customerOrders", customerOrders);
+			
+			return "account-customer";
+		} 
+		else if(session.getAttribute("serviceCenter")!=null) {
+			String serviceCenterName = ((ServiceCenter) session.getAttribute("serviceCenter")).getServiceCenterName();
+			List<ServiceCenter> serviceCenters = customerDao.showServiceCenterByName(serviceCenterName);
+			ServiceCenter s = serviceCenters.get(0);
+			Long mobileNo = s.getMobileNo();
+			
+			List<CustomerBill> customerOrders = customerDao.getServiceCenterOrders(mobileNo);
+			model.put("customerOrders", customerOrders);
+			
+			return "account-service-center";
+		}
+		return null;
+	}
+	
+	@RequestMapping(value="/approve-payment.htm")
+	public void approvePayment(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println(request.getParameter("billId"));
+		int billId = Integer.parseInt(request.getParameter("billId"));
+		customerDao.updateBillPayment(billId);
 		
-		List<CustomerBill> customerOrders = customerDao.getCustomerOrders(mobileNo);
-		System.out.println(customerOrders);
-		model.put("customerOrders", customerOrders);
-		
-		return "account-customer";
+		try {
+			response.sendRedirect(request.getContextPath() + "/account.htm");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
